@@ -5,6 +5,7 @@ import Picture from "./Picture";
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
 
 // import all images for game and store as an array
 import image1 from "../images/state1.GIF";
@@ -19,7 +20,7 @@ function Game() {
   let word = dictionary[Math.floor(Math.random() * dictionary.length)];
 
   // Track number of wroing answers (state)
-  let wrongAnswers = 3;
+  let wrongAnswers = 0;
 
   // Array of images for game
   const images = [image1, image2, image3, image4];
@@ -40,6 +41,9 @@ function Game() {
         </Grid>
         <Grid item xs={6}>
           <Word word={word} />
+        </Grid>
+        <Grid item xs={6}>
+          <Button onClick={() => (wrongAnswers += 1)}>Click!</Button>
         </Grid>
         <Grid>
           <Picture image={images[wrongAnswers]} />
