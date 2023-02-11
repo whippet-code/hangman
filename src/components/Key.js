@@ -1,11 +1,8 @@
-// MUI import
-import Button from "@mui/material/Button";
-
 function Key(props) {
   return (
-    <Button variant="text" id={props.letter}>
+    <button type="button" id={props.letter}>
       {props.letter}
-    </Button>
+    </button>
   );
 }
 

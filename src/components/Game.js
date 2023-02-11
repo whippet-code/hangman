@@ -3,10 +3,6 @@ import Keyboard from "./Keyboard";
 import Word from "./Word";
 import Picture from "./Picture";
 
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
-
 // import all images for game and store as an array
 import image1 from "../images/state1.GIF";
 import image2 from "../images/state2.GIF";
@@ -26,33 +22,27 @@ function Game() {
   const images = [image1, image2, image3, image4];
 
   return (
-    <Box
-      sx={{
-        width: 0.9,
-        height: 0.9,
-        padding: 2,
-        borderRadius: 4,
-        backgroundColor: "antiquewhite",
-      }}
-    >
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
+    <div className="Game">
+      <div className="gameContainer">
+        <div className="title">
           <h2>Game Page</h2>
-        </Grid>
-        <Grid item xs={6}>
+        </div>
+        <div className="wordHolder">
           <Word word={word} />
-        </Grid>
-        <Grid item xs={6}>
-          <Button onClick={() => (wrongAnswers += 1)}>Click!</Button>
-        </Grid>
-        <Grid>
+        </div>
+        <div>
+          <button type="button" onClick={() => (wrongAnswers += 1)}>
+            Click!
+          </button>
+        </div>
+        <div className="pictureHolder">
           <Picture image={images[wrongAnswers]} />
-        </Grid>
-        <Grid item xs={12} className="keyboardHolder">
+        </div>
+        <div className="keyboardHolder">
           <Keyboard />
-        </Grid>
-      </Grid>
-    </Box>
+        </div>
+      </div>
+    </div>
   );
 }
 

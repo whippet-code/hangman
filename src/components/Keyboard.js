@@ -2,7 +2,7 @@
 import Key from "./Key";
 
 // mui imports
-import ButtonGroup from "@mui/material/ButtonGroup";
+
 
 function Keyboard() {
   // alphabet array for keyboard rendering
@@ -10,16 +10,11 @@ function Keyboard() {
   alphabet = alphabet.split("");
 
   return (
-    <ButtonGroup
-      variant="contained"
-      size="small"
-      aria-label="outlined primary button group"
-      id="Keyboard"
-    >
+    <div id="Keyboard">
       {alphabet.map((char, index) => {
         return <Key letter={char} key={index} />;
       })}
-    </ButtonGroup>
+    </div>
   );
 }
 
