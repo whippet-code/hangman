@@ -4,6 +4,8 @@
 
 ### Built using React & Material UI CSS framework
 
+#### DONE - key passes guess to game (but rerenders upon update so need state for word, numberWrongs)
+
 Stuff to do still
 Keyboard working ( take input and search the word )
 
