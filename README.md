@@ -4,10 +4,14 @@
 
 ### Built using React & Material UI CSS framework
 
-#### DONE - key passes guess to game (but rerenders upon update so need state for word, numberWrongs)
-
 Stuff to do still
-Keyboard working ( take input and search the word )
+Keyboard -
+ispressed and onChange need linking?? to both work on click.
+
+import all game pictures and set up array fully.
+
+checkGuess -
+if in word, map word and for true letters give class (show)
 
 Word
 Letters rendered in own div/p change visability
@@ -18,3 +22,5 @@ get that letters p element and give it a class of show
 build rules component page
 
 win / lose page
+
+MAKE PRETTY :)

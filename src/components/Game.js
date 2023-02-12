@@ -17,19 +17,34 @@ function Game() {
   const dictionary = ["test", "trial", "random", "word", "guess"];
   // get random number for an index of array and select that word to play game with
   let word = dictionary[Math.floor(Math.random() * dictionary.length)];
+  // use State to store word as initial state
+  const [gameWord] = useState(word);
 
   // Track number of wroing answers (state)
-  let wrongAnswers = 0;
+  const [wrongAnswers, setWrongAnswers] = useState(0);
+  // function to update wrongAnswers state
 
   // Array of images for game
   const images = [image1, image2, image3, image4];
 
   // set state for user input guess from key components
-  const [guess, setGuess] = useState("p");
+  const [guess, setGuess] = useState("");
 
   // function to handle user guess (to be passed as prop to key via keyboard comp)
   function handleGuess(newGuess) {
     setGuess(newGuess);
+    checkGuess(newGuess);
+  }
+
+  // check guess against gameWord
+  function checkGuess(newGuess) {
+    //first pass, does word have guess in it?
+
+    //**** CHANGE TO ALL INDEXS OF GUESS */
+    console.log(newGuess);
+    gameWord.includes(newGuess)
+      ? console.log("found it")
+      : setWrongAnswers(wrongAnswers + 1);
   }
   return (
     <div className="Game">
@@ -38,10 +53,10 @@ function Game() {
       </div>
       <div className="wordHolder">
         <h4>{guess}</h4>
-        <Word word={word} />
+        <Word word={gameWord} />
       </div>
       <div>
-        <button type="button" onClick={() => (wrongAnswers += 1)}>
+        <button type="button" onClick={() => setWrongAnswers(wrongAnswers + 1)}>
           Click!
         </button>
       </div>
