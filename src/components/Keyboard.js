@@ -1,9 +1,6 @@
 // imp components
 import Key from "./Key";
 
-// mui imports
-
-
 function Keyboard() {
   // alphabet array for keyboard rendering
   let alphabet = "abcdefghijklmnopqrstuvwxyz";

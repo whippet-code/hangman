@@ -6,7 +6,6 @@
 
 Stuff to do still
 Keyboard working ( take input and search the word )
-Keys pressed stay pressed
 
 Word
 Letters rendered in own div/p change visability
