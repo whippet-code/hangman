@@ -23,24 +23,22 @@ function Game() {
 
   return (
     <div className="Game">
-      <div className="gameContainer">
-        <div className="title">
-          <h2>Game Page</h2>
-        </div>
-        <div className="wordHolder">
-          <Word word={word} />
-        </div>
-        <div>
-          <button type="button" onClick={() => (wrongAnswers += 1)}>
-            Click!
-          </button>
-        </div>
-        <div className="pictureHolder">
-          <Picture image={images[wrongAnswers]} />
-        </div>
-        <div className="keyboardHolder">
-          <Keyboard />
-        </div>
+      <div className="title">
+        <h2>Game Page</h2>
+      </div>
+      <div className="wordHolder">
+        <Word word={word} />
+      </div>
+      <div>
+        <button type="button" onClick={() => (wrongAnswers += 1)}>
+          Click!
+        </button>
+      </div>
+      <div className="pictureHolder">
+        <Picture image={images[wrongAnswers]} />
+      </div>
+      <div className="keyboardHolder">
+        <Keyboard />
       </div>
     </div>
   );
