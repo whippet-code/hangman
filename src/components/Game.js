@@ -1,3 +1,6 @@
+// mod imports
+import { useState } from "react";
+
 // components
 import Keyboard from "./Keyboard";
 import Word from "./Word";
@@ -21,12 +24,20 @@ function Game() {
   // Array of images for game
   const images = [image1, image2, image3, image4];
 
+  // set state for user input guess from key components
+  const [guess, setGuess] = useState("p");
+
+  // function to handle user guess (to be passed as prop to key via keyboard comp)
+  function handleGuess(newGuess) {
+    setGuess(newGuess);
+  }
   return (
     <div className="Game">
       <div className="title">
         <h2>Game Page</h2>
       </div>
       <div className="wordHolder">
+        <h4>{guess}</h4>
         <Word word={word} />
       </div>
       <div>
@@ -38,7 +49,7 @@ function Game() {
         <Picture image={images[wrongAnswers]} />
       </div>
       <div className="keyboardHolder">
-        <Keyboard />
+        <Keyboard guess={guess} onChange={handleGuess} />
       </div>
     </div>
   );
