@@ -6,7 +6,7 @@
 
 Stuff to do still
 
-import all game pictures and set up array fully.
+Build out word array
 
 checkGuess -
 if in word, map word and for true letters give class (show)
@@ -22,3 +22,6 @@ build rules component page
 win / lose page
 
 MAKE PRETTY :)
+
+Probs
+when using setState to change stae in a function it isn't immediate (delay until function within which it is called updates)
