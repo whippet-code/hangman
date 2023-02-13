@@ -5,8 +5,6 @@
 ### Built using React & Material UI CSS framework
 
 Stuff to do still
-Keyboard -
-ispressed and onChange need linking?? to both work on click.
 
 import all game pictures and set up array fully.
 

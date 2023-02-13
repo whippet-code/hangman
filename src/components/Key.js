@@ -17,17 +17,21 @@ function Key(props) {
   return (
     <button
       type="button"
-      onClick={handleChange}
-      // onChange={handleChange}
-      // onClick={
-      //   (e) =>
-      //     // if already pressed do nothing else give 'pressedKey class
-      //     isPressed(e.target.classList)
-      //       ? ""
-      //       : e.target.classList.toggle("pressedKey")
-      //   // set guess to keys value
-      //   // see if word contains guess
-      // }
+      onClick={
+        // Call func to change guess state (in turn checks the guess)
+
+        // Then call isPressed func to
+        (e) =>
+          // if already pressed do nothing else call handleChange func to change guess state to key value and give key 'pressedKey class
+          {
+            if (isPressed(e.target.classList)) {
+              return;
+            } else {
+              handleChange(e);
+              e.target.classList.toggle("pressedKey");
+            }
+          }
+      }
       id={props.letter}
       className="Key"
     >
