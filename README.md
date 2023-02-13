@@ -10,9 +10,6 @@ Build out word array
 
 build rules component page
 
-win / lose page
+win / lose page && stop game upon hit win/lose status
 
 MAKE PRETTY :)
-
-Probs!!!!
-gameOver func not 100% update at right time. lose always right, win sometimes delayed.

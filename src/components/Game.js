@@ -33,8 +33,16 @@ function Game() {
   const [foundLetters, setFoundLetters] = useState(0);
   // useEffect to track changes to above two states
   useEffect(() => {
-    gameOver();
-  }, [wrongAnswers, foundLetters]);
+    console.log("Game status check");
+    console.log(gameWord.length);
+    if (foundLetters === gameWord.length) {
+      //render game win
+      console.log("WINNER!");
+    } else if (wrongAnswers === 10) {
+      //render game Lose
+      console.log("You Lose!");
+    }
+  }, [wrongAnswers, foundLetters, gameWord]);
 
   // Array of images for game
   const images = [
@@ -82,19 +90,19 @@ function Game() {
       setWrongAnswers((prevState) => prevState + 1);
     }
     // check if game over conditions met
-    gameOver();
+    // gameOver();
   }
 
   // function to see if game over
-  function gameOver() {
-    if (foundLetters === word.length) {
-      //render game win
-      console.log("WINNER!");
-    } else if (wrongAnswers === 10) {
-      //render game Lose
-      console.log("You Lose!");
-    }
-  }
+  // function gameOver() {
+  //   if (foundLetters === gameWord.length) {
+  //     //render game win
+  //     console.log("WINNER!");
+  //   } else if (wrongAnswers === 10) {
+  //     //render game Lose
+  //     console.log("You Lose!");
+  //   }
+  // }
 
   // Game component html passed to App
   return (
