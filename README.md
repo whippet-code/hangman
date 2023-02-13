@@ -13,3 +13,5 @@ build rules component page
 win / lose page && stop game upon hit win/lose status
 
 MAKE PRETTY :)
+
+Tidy up <Game /> - commented out code etc.
