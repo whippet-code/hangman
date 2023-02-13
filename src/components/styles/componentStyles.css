@@ -1,3 +1,17 @@
 .pressedKey {
   background: red;
 }
+
+.hiddenLetter {
+  color: white;
+  border-bottom: 2px solid black;
+}
+
+.show {
+  color: black;
+  border: none;
+}
+
+.Word {
+  display: flex;
+}

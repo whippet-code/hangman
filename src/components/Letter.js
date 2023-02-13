@@ -1,5 +1,11 @@
+import "./styles/componentStyles.css";
+
 function Letter(props) {
-  return <h3 id={props.index}>{props.value}</h3>;
+  return (
+    <h2 id={`word${props.index}`} className="hiddenLetter">
+      {props.value}
+    </h2>
+  );
 }
 
 export default Letter;

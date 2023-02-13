@@ -1,10 +1,11 @@
 import Letter from "./Letter";
 
 function Word(props) {
+  const word = props.word.split("");
   return (
     <div className="Word">
-      {[props.word].map((letter, index) => {
-        return <Letter value={letter} key={index} />;
+      {word.map((letter, index) => {
+        return <Letter value={letter} key={index} index={index} />;
       })}
     </div>
   );

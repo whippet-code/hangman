@@ -1,5 +1,5 @@
 // mod imports
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // components
 import Keyboard from "./Keyboard";
@@ -29,9 +29,12 @@ function Game() {
 
   // Track number of wroing answers (state)
   const [wrongAnswers, setWrongAnswers] = useState(0);
-
   // State variable for found letters in word
   const [foundLetters, setFoundLetters] = useState(0);
+  // useEffect to track changes to above two states
+  useEffect(() => {
+    gameOver();
+  }, [wrongAnswers, foundLetters]);
 
   // Array of images for game
   const images = [
@@ -63,25 +66,22 @@ function Game() {
     //itterate gameWord (map)
     //if word.letter === guess
     // change class of this element (function????) && increase revealledLetters by one (for each one) /// if I change class here is it passed to <Word />
-    // check if shown === word length = WIN!
     // If not in word - update wronganswers++
-    console.log(newGuess);
-    gameWord.includes(newGuess)
-      ? // convert word string to an array to enable .map method
-        gameWord.split("").map((letter) => {
-          if (letter === newGuess) {
-            console.log("found one");
-            // change class
-
-            // increase found letters
-            setFoundLetters(foundLetters + 1);
-            console.log(foundLetters);
-            console.log(gameWord.length);
-          }
-          // once .map complete, call func  to check if won (foundLetters === length of word)
-          return gameOver();
-        })
-      : setWrongAnswers(wrongAnswers + 1);
+    if (gameWord.includes(newGuess)) {
+      // convert word string to an array to enable .map method
+      gameWord.split("").map((letter, index) => {
+        if (letter === newGuess) {
+          // change class
+          document.getElementById("word" + index).classList.toggle("show");
+          // increase found letters
+          setFoundLetters((prevState) => prevState + 1);
+        }
+        return 1;
+      });
+    } else {
+      setWrongAnswers((prevState) => prevState + 1);
+    }
+    // check if game over conditions met
     gameOver();
   }
 
@@ -90,8 +90,7 @@ function Game() {
     if (foundLetters === word.length) {
       //render game win
       console.log("WINNER!");
-    } else if (wrongAnswers === 9) {
-      // set at 9 as state (wrongAnswers) update not taken in to account as this function call is made in same function as state update??
+    } else if (wrongAnswers === 10) {
       //render game Lose
       console.log("You Lose!");
     }
@@ -104,13 +103,7 @@ function Game() {
         <h2>Game Page</h2>
       </div>
       <div className="wordHolder">
-        <h4>{guess}</h4>
         <Word word={gameWord} />
-      </div>
-      <div>
-        <button type="button" onClick={() => setWrongAnswers(wrongAnswers + 1)}>
-          Click!
-        </button>
       </div>
       <div className="pictureHolder">
         <Picture image={images[wrongAnswers]} />
