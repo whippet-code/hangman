@@ -73,7 +73,7 @@ function Game() {
     //itterate gameWord - if (.includes) guess letter then
     //itterate gameWord (map)
     //if word.letter === guess
-    // change class of this element (function????) && increase revealledLetters by one (for each one) /// if I change class here is it passed to <Word />
+    // change class of this element & increase foundLetters by one
     // If not in word - update wronganswers++
     if (gameWord.includes(newGuess)) {
       // convert word string to an array to enable .map method
@@ -89,20 +89,7 @@ function Game() {
     } else {
       setWrongAnswers((prevState) => prevState + 1);
     }
-    // check if game over conditions met
-    // gameOver();
   }
-
-  // function to see if game over
-  // function gameOver() {
-  //   if (foundLetters === gameWord.length) {
-  //     //render game win
-  //     console.log("WINNER!");
-  //   } else if (wrongAnswers === 10) {
-  //     //render game Lose
-  //     console.log("You Lose!");
-  //   }
-  // }
 
   // Game component html passed to App
   return (
