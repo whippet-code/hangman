@@ -6,8 +6,6 @@
 
 Stuff to do still
 
-Build out word array
-
 build rules component page
 
 win / lose page && stop game upon hit win/lose status

@@ -21,16 +21,41 @@ import image11 from "../images/state11.GIF";
 
 function Game() {
   // dictionary of words for game
-  const dictionary = ["test", "trial", "random", "word", "guess"];
+  const dictionary = [
+    "basketball",
+    "soccer",
+    "football",
+    "tennis",
+    "snowboarding",
+    "climbing",
+    "skateboarding",
+    "cycling",
+    "running",
+    "rugby",
+    "cricket",
+    "hockey",
+    "gymnastics",
+    "archery",
+    "swimming",
+    "surfing",
+    "badminton",
+    "squash",
+    "rowing",
+    "baseball",
+    "athletics",
+  ];
+
   // get random number for an index of array and select that word to play game with
   let word = dictionary[Math.floor(Math.random() * dictionary.length)];
+
   // use State to store word as initial state
   const [gameWord] = useState(word);
 
-  // Track number of wroing answers (state)
+  // Track number of wrong answers (state)
   const [wrongAnswers, setWrongAnswers] = useState(0);
   // State variable for found letters in word
   const [foundLetters, setFoundLetters] = useState(0);
+
   // useEffect to track changes to above two states
   useEffect(() => {
     console.log("Game status check");
