@@ -19,7 +19,8 @@ function Rules() {
       </section>
       <section>
         To win the game you must reveal all of the letters in the word before
-        the hangmans gallows is complete.
+        the hangman's gallows are complete.
+        <em>To restart the game at any time, simply refresh your browser.</em>
       </section>
     </div>
   );
