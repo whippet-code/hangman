@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Keyboard from "./Keyboard";
 import Word from "./Word";
 import Picture from "./Picture";
+import GameOver from "./GameOver";
 
 // import all images for game and store as an array
 import image1 from "../images/state1.GIF";
@@ -55,6 +56,8 @@ function Game() {
   const [wrongAnswers, setWrongAnswers] = useState(0);
   // State variable for found letters in word
   const [foundLetters, setFoundLetters] = useState(0);
+  // State for gamefinish
+  const [gameFinish, setGameFinish] = useState("");
 
   // useEffect to track changes to above two states
   useEffect(() => {
@@ -62,10 +65,10 @@ function Game() {
     console.log(gameWord.length);
     if (foundLetters === gameWord.length) {
       //render game win
-      console.log("WINNER!");
+      setGameFinish("win");
     } else if (wrongAnswers === 10) {
       //render game Lose
-      console.log("You Lose!");
+      setGameFinish("lose");
     }
   }, [wrongAnswers, foundLetters, gameWord]);
 
@@ -117,22 +120,29 @@ function Game() {
   }
 
   // Game component html passed to App
-  return (
-    <div className="Game">
-      <div className="title">
-        <h2>Game Page</h2>
-      </div>
-      <div className="wordHolder">
-        <Word word={gameWord} />
-      </div>
-      <div className="pictureHolder">
-        <Picture image={images[wrongAnswers]} />
-      </div>
-      <div className="keyboardHolder">
-        <Keyboard guess={guess} onChange={handleGuess} />
-      </div>
-    </div>
-  );
+  // switch statement used to trigger GameOVer component display upon meeting conditions, else display game
+  switch (gameFinish) {
+    case "win":
+      return <GameOver win="true" />;
+
+    case "lose":
+      return <GameOver win="false" word={gameWord} />;
+
+    default:
+      return (
+        <div className="Game">
+          <div className="pictureHolder">
+            <Picture image={images[wrongAnswers]} />
+          </div>
+          <div className="wordHolder">
+            <Word word={gameWord} />
+          </div>
+          <div className="keyboardHolder">
+            <Keyboard guess={guess} onChange={handleGuess} />
+          </div>
+        </div>
+      );
+  }
 }
 
 export default Game;

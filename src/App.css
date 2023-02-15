@@ -1,0 +1,25 @@
+.App {
+  margin: auto 0;
+  padding: 1rem;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.link {
+  margin: auto 4rem;
+  text-decoration: none;
+  color: rgb(80, 80, 80);
+}
+
+.link:hover {
+  color: rgb(50, 50, 50);
+  font-weight: 600;
+}

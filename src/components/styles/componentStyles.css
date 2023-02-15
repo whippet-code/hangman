@@ -1,10 +1,62 @@
+ /* Styles for componenets */
+
+ /* Home page styles */
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;  
+}
+
+ /* Game page styles */
+.Game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+}
+
+.wordHolder {
+  padding: 2rem;
+  margin-bottom: 0;
+}
+.pictureHolder {
+  padding: 2rem;
+}
+.keyboardHolder {
+  width: 30vw;
+  padding: 2rem;
+  margin: auto 0;
+}
+/* Keyboard */
+
+.Key {
+  height: 2rem;
+  width: 2rem;
+  border: 2px solid PINK;
+  background-color: blanchedalmond;
+  margin: 5px;
+  border-radius: 0.5rem;
+}
+.Key:hover {
+  border: 2px solid hotpink;
+}
 .pressedKey {
-  background: red;
+  background: rgb(205,175,155);
+}
+
+ /* Word */
+.Word {
+  font-size: 3rem;
+  display: flex;
 }
 
 .hiddenLetter {
   color: white;
   border-bottom: 2px solid black;
+  margin: auto 1rem;
 }
 
 .show {
@@ -12,6 +64,17 @@
   border: none;
 }
 
-.Word {
-  display: flex;
+ /* pictures */
+image {
+  margin-top: 5rem;
+}
+
+ /* Rules page styles */
+
+ /* Win Lose styles */
+.GameOver {
+  padding: 4rem;
+  font-size: 6rem;
+  text-align: center;
+  color: hotpink
 }
